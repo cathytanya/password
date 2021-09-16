@@ -27,18 +27,45 @@ function promptCriteria() {
     return
   }
   
-  var confirmlength = confirm("You want your password too be this "+ length + " many characters?")
-  
-  
+  var confirmlength = confirm("You want your password to be "+ length + "  characters?")
   var confirmLower = confirm("Are you sure that you want lower CASE")
   var confirmUpper = confirm("Do you want Upper case ")
   var confirmNumber = confirm("do you want numbers")
   var confirmSpecial = confirm("do you want special characters")
+ 
+  var userChoice = {
+    length: length,
+    confirmLower: confirmLower,
+    confirmNumber: confirmNumber,
+    
+  } 
+}
+
+function randomChar(arr) {
+  var index = Math.floor(Math.random() * arr.length);
+  var characterOut = arr[index];
+  return characterOut
 }
 
 function generatePassword(){
+  var finalChoice = []
   let choice = promptCriteria()
+  if (choice.confirmLower){
+    finalChoice = finalChoice.concat(lettersLower);    
+  }
+  if (choice.confirmUpper){
+    finalChoice = finalChoice.concat(lettersUpper);    
+  }
+  if (choice.confirmNumber){
+    finalChoice = finalChoice.concat(numbers);    
+  }
+  if (choice.confirmSpecial){
+    finalChoice = finalChoice.concat(char);    
+  }
+  console.log(finalChoice);
+  
 }
+
 
 // prompt where people will enter the the length of their password
 // also the password can only have a length between 8-128
