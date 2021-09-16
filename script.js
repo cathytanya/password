@@ -1,5 +1,10 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
+// setting the characters needed for the generator to variables
+let letters = "abcdefghijklmnopqrstuvwxyz"
+let numbers = "0123456789"
+let char = "!@#$%^&*()_=+[]\{}|<>?/;':-"
+
 
 //
 function promptCriteria() { 
