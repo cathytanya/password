@@ -7,46 +7,52 @@ let numbers = ["0","1","2","3","4","5","6","7","8","9"]
 let char = ["!","@","#","$","%","^","&","*","(",")","_","=","+",",","<",">","?","-"]
 let password=document.getElementById("password")
 
+// this function is used to prompt the needed things
 function promptCriteria() {
   let length = parseInt (window.prompt("how long"));
-  
+  // if statement when for when the length entered is less than 8
+  // prompt telling you a message
   if (length < 8){
-    window.alert("NEEDS TO BE MORE THAN 8")
-  
+    window.alert("NEEDS TO BE MORE THAN 8")  
     return
   }
+    // if statement when for when the length entered is more than 128
+  // prompted
   if (length > 128){
     window.alert("NEEDS TO BE LESS THAN 128")
-
     return
   }
   // CHECK IF ITS A NUMBER
   if (Number.isNaN(length)){
     window.alert("PASSWORD LENGTH NEEDS TO BE A NUMBER")
-    
     return
   }
   
+  // the person will be confirming if they want the password to generate will be the length the user wants
   var confirmlength = confirm("You want your password to be "+ length + "  characters?")
+  // this is where the pop up questions for the password will come from
   var confirmLower = confirm("Are you sure that you want lower CASE")
   var confirmUpper = confirm("Do you want Upper case ")
   var confirmNumber = confirm("do you want numbers")
   var confirmSpecial = confirm("do you want special characters")
  
+  // userChoice will become a dictinary for the following variables 
   var userChoice = {
     length: length,
     confirmLower: confirmLower,
+    confirmUpper: confirmUpper,
     confirmNumber: confirmNumber,
-    
+    confirmNumber: confirmNumber,
+    confirmSpecial: confirmSpecial    
   } 
 }
-
+// an array will be passing through this function to choose a character from the arrays 
 function randomChar(arr) {
   var index = Math.floor(Math.random() * arr.length);
   var characterOut = arr[index];
   return characterOut
 }
-
+// this function would be choosing which character it wants
 function generatePassword(){
   var finalChoice = []
   let choice = promptCriteria()
@@ -62,13 +68,9 @@ function generatePassword(){
   if (choice.confirmSpecial){
     finalChoice = finalChoice.concat(char);    
   }
-  console.log(finalChoice);
+  // console.log(finalChoice);
   
 }
-
-
-// prompt where people will enter the the length of their password
-// also the password can only have a length between 8-128
 
 
 // Write password to the #password input
