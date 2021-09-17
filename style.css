@@ -1,9 +1,10 @@
+/* universal variable  */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
+/* the classes/container from the html are using the same visual character */
 html,
 body,
 .wrapper {
@@ -11,25 +12,25 @@ body,
   margin: 0;
   padding: 0;
 }
-
+/* the body of the site uses sans-serif and this background  */
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
-
+/* class wrapper from the html uses the following padding  */
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
-
+/* the header will use the following  */
 header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
-
+/* the card class being characteristics by the following */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -41,7 +42,7 @@ header {
   max-width: 800px;
   padding: 30px 40px;
 }
-
+/* psedo element after will be applied to the card head */
 .card-header::after {
   content: " ";
   display: block;
@@ -49,15 +50,15 @@ header {
   background: #e7e9eb;
   height: 2px;
 }
-
+/* the class has the min-height of 100px */
 .card-body {
   min-height: 100px;
 }
-
+/* the footer will be centered */
 .card-footer {
   text-align: center;
 }
-
+/* the pseddo element was applied to the footer has been changed to the following characteristics */
 .card-footer::before {
   content: " ";
   display: block;
@@ -65,13 +66,13 @@ header {
   background: #e7e9eb;
   height: 2px;
 }
-
+/* the after psedo element was applied to the footer class */
 .card-footer::after {
   content: " ";
   display: block;
   clear: both;
 }
-
+/* the class for the button will use this */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -87,7 +88,7 @@ header {
   text-align: center;
   cursor: pointer;
 }
-
+/* the button class */
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
@@ -96,7 +97,7 @@ button[disabled] {
 .float-right {
   float: right;
 }
-
+/* the id element when printed out will use the following */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -117,19 +118,19 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-
+/* when the application is compressed to 690px the font,margin and padding changes */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
-
+  /* the password will appear smaller in font with the page being compressed */
   #password {
     font-size: 1rem;
   }
 }
-
+/* when the application is compressed to 500px thebutton will become smaller */
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
