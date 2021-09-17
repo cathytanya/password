@@ -37,7 +37,7 @@ function promptCriteria() {
   var confirmSpecial = confirm("do you want special characters")
  
   // userChoice will become a dictinary for the following variables 
-  var userChoice = {
+  let userChoice = {
     length: length,
     confirmLower: confirmLower,
     confirmUpper: confirmUpper,
@@ -45,6 +45,7 @@ function promptCriteria() {
     confirmNumber: confirmNumber,
     confirmSpecial: confirmSpecial    
   } 
+  return userChoice
 }
 // an array will be passing through this function to choose a character from the arrays 
 function randomChar(arr) {
@@ -53,6 +54,7 @@ function randomChar(arr) {
   return characterOut
 }
 // this function would be choosing which character it wants
+// concat is taking the variable adding which ever array the user wishes to use
 function generatePassword(){
   var finalChoice = []
   let choice = promptCriteria()
@@ -68,15 +70,28 @@ function generatePassword(){
   if (choice.confirmSpecial){
     finalChoice = finalChoice.concat(char);    
   }
-  // console.log(finalChoice);
-  
+  //final choice 
+  console.log(finalChoice);  
+
+  //array for finalpassword
+  let finalPassword =[]
+  // for loop with user length choice.length
+  for (let index = 0; index < choice.length; index++) {
+    console.log(randomChar(finalChoice))
+    finalPassword.push(randomChar(finalChoice))
+    console.log(finalPassword)
+  }
+
+  //use random character for that loop
+  //add random character to the final password array
+  //return the final password
 }
 
 
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
-  let passwordText = document.querySelector("#password");
+  let passwordText = document.querySelector("password");
 
   passwordText.value = password;
 
