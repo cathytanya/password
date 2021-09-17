@@ -5,7 +5,7 @@ let lettersLower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
 let lettersUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 let numbers = ["0","1","2","3","4","5","6","7","8","9"]
 let char = ["!","@","#","$","%","^","&","*","(",")","_","=","+",",","<",">","?","-"]
-let password=document.getElementById("password")
+
 
 // this function is used to prompt the needed things
 function promptCriteria() {
@@ -70,18 +70,16 @@ function generatePassword(){
   if (choice.confirmSpecial){
     finalChoice = finalChoice.concat(char);    
   }
-  //final choice 
-  console.log(finalChoice);  
-
+ 
   //array for finalpassword
   let finalPassword =[]
   // for loop with user length choice.length
   for (let index = 0; index < choice.length; index++) {
-    console.log(randomChar(finalChoice))
     finalPassword.push(randomChar(finalChoice))
-    console.log(finalPassword)
   }
-
+    
+  let passwordFinal = finalPassword.join('');
+  console.log(passwordFinal)
   //use random character for that loop
   //add random character to the final password array
   //return the final password
@@ -92,10 +90,8 @@ function generatePassword(){
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("password");
-
   passwordText.value = password;
-
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
